@@ -1,6 +1,6 @@
 import os
 
-class Robo:
+class RoboSimples:
     def __init__(self, matriz):
         self.matriz = matriz
         self.posX, self.posY = self.loc_robo() # posX - linha | posY - coluna
@@ -17,7 +17,7 @@ class Robo:
             self.matriz[self.posX][self.posY] = '-'
             self.posY += 1
             self.matriz[self.posX][self.posY] = '\U0001F916'
-            #self.print_matriz(1)
+            self.print_matriz(1)
         return self.posX, self.posY
 
     def mov_esquerda(self, linha, coluna):
@@ -25,7 +25,7 @@ class Robo:
             self.matriz[self.posX][self.posY] = '-'
             self.posY -= 1
             self.matriz[self.posX][self.posY] = '\U0001F916'
-            #self.print_matriz(1)
+            self.print_matriz(1)
         return self.posX, self.posY
 
     def mov_baixo(self, linha, coluna):
@@ -33,7 +33,7 @@ class Robo:
             self.matriz[self.posX][self.posY] = '-'
             self.posX += 1
             self.matriz[self.posX][self.posY] = '\U0001F916'
-            #self.print_matriz(1)
+            self.print_matriz(1)
         return self.posX, self.posY
 
     def mov_cima(self, linha, coluna):
@@ -41,7 +41,7 @@ class Robo:
             self.matriz[self.posX][self.posY] = '-'
             self.posX -= 1
             self.matriz[self.posX][self.posY] = '\U0001F916'
-            #self.print_matriz(1)
+            self.print_matriz(1)
         return self.posX, self.posY
 
     def executar(self):
@@ -56,16 +56,12 @@ class Robo:
                         coluna = coluna
                         if self.posY < coluna:
                             self.posX, self.posY = self.move_direita(linha, coluna)
-                            self.print_matriz(1)
                         if self.posY > coluna:
                             self.posX, self.posY = self.mov_esquerda(linha, coluna)
-                            self.print_matriz(1)
                         if self.posX < linha:
                             self.posX, self.posY = self.mov_baixo(linha, coluna)
-                            self.print_matriz(1)
                         if self.posX > linha:
                             self.posX, self.posY = self.mov_cima(linha, coluna)
-                            self.print_matriz(1)
 
     def print_matriz(self, status):
         if status == 1:
