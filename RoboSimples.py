@@ -59,13 +59,11 @@ class RoboSimples:
     def executar(self):
         # encontrar posições alvo e mover o robô para cada uma
         lixos = ['r', 'o']
-        for lixo in lixos:
-            for linha in range(len(self.matriz)):
-                for coluna in range(len(self.matriz[linha])):
+        for linha in range(len(self.matriz)):
+            for coluna in range(len(self.matriz[linha])):
+                for lixo in lixos:
                     if self.matriz[linha][coluna] == lixo:
                         # mover o robô para a posição do lixo
-                        linha = linha
-                        coluna = coluna
                         if self.posY < coluna:
                             self.posX, self.posY = self.move_direita(linha, coluna)
                         if self.posY > coluna:
@@ -75,12 +73,14 @@ class RoboSimples:
                         if self.posX > linha:
                             self.posX, self.posY = self.mov_cima(linha, coluna)
 
+                            
+
     def print_matriz(self, status):
         if status == 1:
             for linha in self.matriz:
                 print(' '.join(linha))
             print('\n')
-            #input()
+            input()
             os.system('clear' if os.name == 'posix' else 'cls')  # limpa a tela do terminal
         else:
             for linha in self.matriz:
