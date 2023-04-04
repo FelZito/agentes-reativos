@@ -1,6 +1,6 @@
 import random, time
-from Robo import *
-from RoboSimples import *
+from agentes.agente_objetivos import *
+from agentes.agente_simples import *
 
 # Cria aleatoriamente uma matriz e a preenche com "-"
 matriz = [["-" for j in range(20)] for i in range(20)]
@@ -29,7 +29,7 @@ while True:
     op = int(input("Informe a opção desejada: "))
 
     if op == 1:
-        robo_simples = RoboSimples(matriz)
+        robo_simples = AgenteSimples(matriz)
         print("="*40)
         print("           MATRIZ ORIGINAL         ")
         print("="*40)
@@ -51,7 +51,7 @@ while True:
         matriz[:] = [linha[:] for linha in reset_matriz]
 
     elif op == 2:
-        robo = Robo(matriz)
+        robo = AgenteObjetivos(matriz)
         print("="*40)
         print("           MATRIZ ORIGINAL         ")
         print("="*40)
