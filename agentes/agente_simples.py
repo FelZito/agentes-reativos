@@ -13,7 +13,7 @@ class AgenteSimples:
                     print(elemento, end=" ")
                 print()
             #input()
-            os.system('clear')
+            os.system('clear' if os.name == 'posix' else 'cls')  # limpa a tela do terminal
         else:
             for linha in self.matriz:
                 for elemento in linha:
